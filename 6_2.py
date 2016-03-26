@@ -8,10 +8,10 @@ def read_points():
         points.append(float(line))
     return points
 
-# F(x) = 1 - e ^ (x ^ gamma)
-# p(x) = F'(x) = e ^ (x ^ gamma) * gamma * x ^ (gamma - 1)
+# F(x) = 1 - e ^ (-x ^ gamma)
+# p(x) = F'(x) = e ^ (-x ^ gamma) * gamma * x ^ (gamma - 1)
 # L = p(x_1) * ... * p(x_N) =
-#   = gamma ^ N * П x_i ^ (gamma - 1) * П e ^ (x_i ^ gamma)
+#   = gamma ^ N * П x_i ^ (gamma - 1) * П e ^ (-x_i ^ gamma)
 # ln L = N * ln gamma + (gamma - 1) * sum(ln x_i) - sum(x_i ^ gamma)
 # Пусть gamma0 = log_10(gamma)
 def find_optimal_gamma(points, left, right, step):
